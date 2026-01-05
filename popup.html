@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo">
+        <svg class="globe-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <ellipse cx="12" cy="12" rx="4" ry="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M2 12h20" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2c3 3 4 6 4 10s-1 7-4 10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 2c-3 3-4 6-4 10s1 7 4 10" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <h1>Local Search</h1>
+      </div>
+      <p class="tagline">Search Google from anywhere in the world</p>
+      
+      <div class="language-toggle-container">
+        <span class="toggle-label">Search as Local</span>
+        <label class="switch">
+          <input type="checkbox" id="languageToggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-label">Search in English</span>
+      </div>
+    </header>
+
+    <div class="search-section">
+      <div class="search-box">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M16 16l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="searchQuery" placeholder="What are you searching for?" autofocus>
+      </div>
+    </div>
+
+    <div class="location-section">
+      <div class="tabs">
+        <button class="tab active" data-tab="countries">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 21V3h18v18H3z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M3 9h18M9 21V9" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          Countries
+        </button>
+        <button class="tab" data-tab="cities">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Cities
+        </button>
+      </div>
+
+      <div class="tab-content active" id="countries-tab">
+        <div class="location-grid" id="countriesGrid">
+          <!-- Countries will be populated by JS -->
+        </div>
+      </div>
+
+      <div class="tab-content" id="cities-tab">
+        <div class="location-grid" id="citiesGrid">
+          <!-- Cities will be populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <span>Press Enter after selecting a location</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
+

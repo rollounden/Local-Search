@@ -1,0 +1,71 @@
+// Simple list of countries for the country tab
+const countries = [
+  // North America
+  { name: 'United States', code: 'US', lang: 'en', flag: '🇺🇸' },
+  { name: 'Canada', code: 'CA', lang: 'en', flag: '🇨🇦' },
+  { name: 'Mexico', code: 'MX', lang: 'es', flag: '🇲🇽' },
+  { name: 'Costa Rica', code: 'CR', lang: 'es', flag: '🇨🇷' },
+  { name: 'Panama', code: 'PA', lang: 'es', flag: '🇵🇦' },
+  
+  // Europe
+  { name: 'United Kingdom', code: 'GB', lang: 'en', flag: '🇬🇧' },
+  { name: 'Germany', code: 'DE', lang: 'de', flag: '🇩🇪' },
+  { name: 'France', code: 'FR', lang: 'fr', flag: '🇫🇷' },
+  { name: 'Spain', code: 'ES', lang: 'es', flag: '🇪🇸' },
+  { name: 'Italy', code: 'IT', lang: 'it', flag: '🇮🇹' },
+  { name: 'Netherlands', code: 'NL', lang: 'nl', flag: '🇳🇱' },
+  { name: 'Switzerland', code: 'CH', lang: 'de', flag: '🇨🇭' },
+  { name: 'Sweden', code: 'SE', lang: 'sv', flag: '🇸🇪' },
+  { name: 'Norway', code: 'NO', lang: 'no', flag: '🇳🇴' },
+  { name: 'Denmark', code: 'DK', lang: 'da', flag: '🇩🇰' },
+  { name: 'Finland', code: 'FI', lang: 'fi', flag: '🇫🇮' },
+  { name: 'Poland', code: 'PL', lang: 'pl', flag: '🇵🇱' },
+  { name: 'Czech Republic', code: 'CZ', lang: 'cs', flag: '🇨🇿' },
+  { name: 'Hungary', code: 'HU', lang: 'hu', flag: '🇭🇺' },
+  { name: 'Romania', code: 'RO', lang: 'ro', flag: '🇷🇴' },
+  { name: 'Ireland', code: 'IE', lang: 'en', flag: '🇮🇪' },
+  { name: 'Belgium', code: 'BE', lang: 'nl', flag: '🇧🇪' },
+  { name: 'Austria', code: 'AT', lang: 'de', flag: '🇦🇹' },
+  { name: 'Portugal', code: 'PT', lang: 'pt', flag: '🇵🇹' },
+  { name: 'Greece', code: 'GR', lang: 'el', flag: '🇬🇷' },
+  { name: 'Turkey', code: 'TR', lang: 'tr', flag: '🇹🇷' },
+  { name: 'Ukraine', code: 'UA', lang: 'uk', flag: '🇺🇦' },
+  
+  // Asia Pacific
+  { name: 'Japan', code: 'JP', lang: 'ja', flag: '🇯🇵' },
+  { name: 'South Korea', code: 'KR', lang: 'ko', flag: '🇰🇷' },
+  { name: 'China', code: 'CN', lang: 'zh-CN', flag: '🇨🇳' },
+  { name: 'India', code: 'IN', lang: 'en', flag: '🇮🇳' },
+  { name: 'Pakistan', code: 'PK', lang: 'ur', flag: '🇵🇰' },
+  { name: 'Bangladesh', code: 'BD', lang: 'bn', flag: '🇧🇩' },
+  { name: 'Australia', code: 'AU', lang: 'en', flag: '🇦🇺' },
+  { name: 'New Zealand', code: 'NZ', lang: 'en', flag: '🇳🇿' },
+  { name: 'Singapore', code: 'SG', lang: 'en', flag: '🇸🇬' },
+  { name: 'Indonesia', code: 'ID', lang: 'id', flag: '🇮🇩' },
+  { name: 'Malaysia', code: 'MY', lang: 'ms', flag: '🇲🇾' },
+  { name: 'Thailand', code: 'TH', lang: 'th', flag: '🇹🇭' },
+  { name: 'Vietnam', code: 'VN', lang: 'vi', flag: '🇻🇳' },
+  { name: 'Philippines', code: 'PH', lang: 'en', flag: '🇵🇭' },
+  { name: 'Taiwan', code: 'TW', lang: 'zh-TW', flag: '🇹🇼' },
+  { name: 'Hong Kong', code: 'HK', lang: 'zh-TW', flag: '🇭🇰' },
+
+  // Latin America
+  { name: 'Brazil', code: 'BR', lang: 'pt', flag: '🇧🇷' },
+  { name: 'Argentina', code: 'AR', lang: 'es', flag: '🇦🇷' },
+  { name: 'Chile', code: 'CL', lang: 'es', flag: '🇨🇱' },
+  { name: 'Colombia', code: 'CO', lang: 'es', flag: '🇨🇴' },
+  { name: 'Peru', code: 'PE', lang: 'es', flag: '🇵🇪' },
+  { name: 'Uruguay', code: 'UY', lang: 'es', flag: '🇺🇾' },
+  
+  // Middle East & Africa
+  { name: 'UAE', code: 'AE', lang: 'ar', flag: '🇦🇪' },
+  { name: 'Saudi Arabia', code: 'SA', lang: 'ar', flag: '🇸🇦' },
+  { name: 'Qatar', code: 'QA', lang: 'ar', flag: '🇶🇦' },
+  { name: 'Kuwait', code: 'KW', lang: 'ar', flag: '🇰🇼' },
+  { name: 'Israel', code: 'IL', lang: 'he', flag: '🇮🇱' },
+  { name: 'Egypt', code: 'EG', lang: 'ar', flag: '🇪🇬' },
+  { name: 'Morocco', code: 'MA', lang: 'ar', flag: '🇲🇦' },
+  { name: 'South Africa', code: 'ZA', lang: 'en', flag: '🇿🇦' },
+  { name: 'Nigeria', code: 'NG', lang: 'en', flag: '🇳🇬' },
+  { name: 'Kenya', code: 'KE', lang: 'en', flag: '🇰🇪' }
+];

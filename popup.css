@@ -1,0 +1,435 @@
+:root {
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a1f26;
+  --bg-tertiary: #242b35;
+  --bg-hover: #2d3640;
+  --accent-primary: #00d4aa;
+  --accent-secondary: #00b894;
+  --accent-glow: rgba(0, 212, 170, 0.3);
+  --text-primary: #ffffff;
+  --text-secondary: #8899a6;
+  --text-muted: #657786;
+  --border-color: #2f3943;
+  --border-active: var(--accent-primary);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  width: 400px;
+  min-height: 500px;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  padding: 20px;
+  background: 
+    radial-gradient(ellipse at top right, rgba(0, 212, 170, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(0, 184, 148, 0.05) 0%, transparent 50%),
+    var(--bg-primary);
+  min-height: 500px;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+  animation: fadeInDown 0.4s ease-out;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.globe-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-primary);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* Language Toggle */
+.language-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.toggle-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--text-muted);
+  transition: .4s;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+  background-color: var(--accent-primary);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Highlight active label */
+.switch:has(input:not(:checked)) ~ .toggle-label:last-child {
+  color: var(--text-muted);
+}
+
+.switch:has(input:checked) ~ .toggle-label:last-child {
+  color: var(--accent-primary);
+}
+
+.switch:has(input:not(:checked)) ~ .toggle-label:first-child { /* Using ~ logic requires restructuring or JS state, sticking to basic CSS for now */ }
+.language-toggle-container:has(input:not(:checked)) .toggle-label:first-child {
+  color: var(--accent-primary);
+}
+.language-toggle-container:has(input:checked) .toggle-label:first-child {
+  color: var(--text-muted);
+}
+.language-toggle-container:has(input:checked) .toggle-label:last-child {
+  color: var(--accent-primary);
+}
+
+/* Search Section */
+.search-section {
+  margin-bottom: 20px;
+  animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.search-box:focus-within .search-icon {
+  color: var(--accent-primary);
+}
+
+#searchQuery {
+  width: 100%;
+  padding: 14px 14px 14px 44px;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+#searchQuery::placeholder {
+  color: var(--text-muted);
+}
+
+#searchQuery:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: var(--bg-tertiary);
+}
+
+/* Location Section */
+.location-section {
+  animation: fadeInUp 0.4s ease-out 0.2s both;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: var(--bg-secondary);
+  padding: 6px;
+  border-radius: var(--radius-md);
+}
+
+.tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab svg {
+  width: 16px;
+  height: 16px;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.tab.active {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+.tab.active svg {
+  stroke: var(--bg-primary);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Location Grid */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.location-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.location-grid::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+.location-grid::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+.location-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.location-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--text-muted);
+  transform: translateY(-1px);
+}
+
+.location-btn:active {
+  transform: translateY(0);
+}
+
+.location-btn.selected {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  border-color: transparent;
+  color: var(--bg-primary);
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.location-btn .flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.location-btn .name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  animation: fadeInUp 0.4s ease-out 0.3s both;
+}
+
+.footer span {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animation for location buttons */
+.location-btn {
+  animation: fadeInUp 0.3s ease-out both;
+}
+
+.location-btn:nth-child(1) { animation-delay: 0.05s; }
+.location-btn:nth-child(2) { animation-delay: 0.07s; }
+.location-btn:nth-child(3) { animation-delay: 0.09s; }
+.location-btn:nth-child(4) { animation-delay: 0.11s; }
+.location-btn:nth-child(5) { animation-delay: 0.13s; }
+.location-btn:nth-child(6) { animation-delay: 0.15s; }
+.location-btn:nth-child(7) { animation-delay: 0.17s; }
+.location-btn:nth-child(8) { animation-delay: 0.19s; }
+.location-btn:nth-child(9) { animation-delay: 0.21s; }
+.location-btn:nth-child(10) { animation-delay: 0.23s; }
+
+/* Selected state pulse */
+.location-btn.selected {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 12px var(--accent-glow);
+  }
+  50% {
+    box-shadow: 0 4px 20px var(--accent-glow), 0 0 30px var(--accent-glow);
+  }
+}
+
